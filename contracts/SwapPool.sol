@@ -28,12 +28,12 @@ contract SwapPool {
         uint reserveIn,
         uint reserveOut
     ) public pure returns (uint) {
-        // uint amountInWithFee = amountIn * 997;
-        // uint numerator = amountInWithFee * reserveOut;
-        // uint denominator = reserveIn * 1000 + amountInWithFee;
-        // return numerator / denominator;
-				// (amountIn * 997 * reserveOut) / (reserveIn * 1000 + amountIn * 997);
-				return reserveIn - (reserveIn * reserveOut) / (reserveOut + amountIn);
+        uint amountInWithFee = amountIn * 1000;
+        uint numerator = amountInWithFee * reserveOut;
+        uint denominator = reserveIn * 1000 + amountInWithFee;
+        return numerator / denominator;
+		// (amountIn * 997 * reserveOut) / (reserveIn * 1000 + amountIn * 997);
+		// return reserveIn - (reserveIn * reserveOut) / (reserveOut + amountIn);
     }
 
     function swap(address fromToken, uint amountIn) external {

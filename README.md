@@ -68,6 +68,7 @@ You can interact with the deployed contracts using Hardhat's console:
    const HUMToken = await ethers.getContractAt("HUMToken", "<HUMToken_address>");
    const USDToken = await ethers.getContractAt("USDToken", "<USDToken_address>");
    const SwapPool = await ethers.getContractAt("SwapPool", "<SwapPool_address>");
+
    ```
 
 3. **Example interactions:**
@@ -84,14 +85,10 @@ You can interact with the deployed contracts using Hardhat's console:
      // Approve SwapPool to spend your HUM tokens
      await HUMToken.approve(SwapPool.target, ethers.parseUnits("1000", 18));
      // Approve SwapPool to spend your USD tokens
-     await USDToken.approve(SwapPool.target, ethers.parseUnits("1000", 18));
      ```
-
    - **Swap tokens (example):**
      ```js
-     // Replace with actual function and parameters as defined in your SwapPool contract
      await SwapPool.swapHUMforUSD(ethers.parseUnits("100", 18));
-     ```
 
    - **Check updated balances:**
      ```js
